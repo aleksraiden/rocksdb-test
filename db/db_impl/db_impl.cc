@@ -153,10 +153,10 @@ void DumpSupportInfo(Logger* logger) {
   ROCKS_LOG_HEADER(logger, "DMutex implementation: %s", DMutex::kName());
 
   bool jemalloc_supported = false;
-//# ifdef ROCKSDB_JEMALLOC
-//  jemalloc_supported = HasJemalloc();
-//# endif
-//  ROCKS_LOG_HEADER(logger, "Jemalloc supported: %d", jemalloc_supported);
+#ifdef ROCKSDB_JEMALLOC
+  jemalloc_supported = HasJemalloc();
+#endif
+  ROCKS_LOG_HEADER(logger, "Jemalloc supported: %d", jemalloc_supported);
 }
 }  // namespace
 
