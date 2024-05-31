@@ -71,9 +71,9 @@
 #include "options/cf_options.h"
 #include "options/options_helper.h"
 #include "options/options_parser.h"
-#ifdef ROCKSDB_JEMALLOC
-#include "port/jemalloc_helper.h"
-#endif
+// #  ifdef ROCKSDB_JEMALLOC
+// #include "port/jemalloc_helper.h"
+// #endif
 #include "port/port.h"
 #include "rocksdb/cache.h"
 #include "rocksdb/compaction_filter.h"
@@ -153,10 +153,10 @@ void DumpSupportInfo(Logger* logger) {
   ROCKS_LOG_HEADER(logger, "DMutex implementation: %s", DMutex::kName());
 
   bool jemalloc_supported = false;
-#ifdef ROCKSDB_JEMALLOC
-  jemalloc_supported = HasJemalloc();
-#endif
-  ROCKS_LOG_HEADER(logger, "Jemalloc supported: %d", jemalloc_supported);
+//# ifdef ROCKSDB_JEMALLOC
+//  jemalloc_supported = HasJemalloc();
+//# endif
+//  ROCKS_LOG_HEADER(logger, "Jemalloc supported: %d", jemalloc_supported);
 }
 }  // namespace
 
